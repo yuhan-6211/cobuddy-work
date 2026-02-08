@@ -16,24 +16,26 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
         }
 
         .calculator {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            width: 320px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+            padding: 35px;
+            width: 340px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
         .display {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            border: 2px solid rgba(0, 188, 212, 0.15);
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 25px;
             text-align: right;
         }
 
@@ -41,85 +43,115 @@
             background: transparent;
             border: none;
             font-size: 36px;
-            color: #212529;
+            color: #006064;
             width: 100%;
             text-align: right;
             outline: none;
+            font-weight: 500;
         }
 
         .buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            gap: 14px;
         }
 
         button {
-            padding: 20px;
+            padding: 18px;
             font-size: 20px;
             border: none;
-            border-radius: 10px;
+            border-radius: 14px;
             cursor: pointer;
-            transition: all 0.2s;
-            font-weight: bold;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+            pointer-events: none;
         }
 
         button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         button:active {
-            transform: scale(0.95);
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
         }
 
         .number {
-            background: #e9ecef;
-            color: #212529;
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            color: #004d40;
         }
 
         .number:hover {
-            background: #dee2e6;
+            background: linear-gradient(135deg, #b2dfdb 0%, #80cbc4 100%);
         }
 
         .operator {
-            background: #667eea;
+            background: linear-gradient(135deg, #4fc3f7 0%, #03a9f4 100%);
             color: white;
         }
 
         .operator:hover {
-            background: #5568d3;
+            background: linear-gradient(135deg, #03a9f4 0%, #0288d1 100%);
         }
 
         .equals {
-            background: #764ba2;
+            background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
             color: white;
             grid-column: span 2;
         }
 
         .equals:hover {
-            background: #654090;
+            background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
         }
 
         .clear {
-            background: #e74c3c;
+            background: linear-gradient(135deg, #ef9a9a 0%, #e57373 100%);
             color: white;
         }
 
         .clear:hover {
-            background: #c0392b;
+            background: linear-gradient(135deg, #e57373 0%, #ef5350 100%);
         }
 
         .delete {
-            background: #f39c12;
+            background: linear-gradient(135deg, #ffcc80 0%, #ffb74d 100%);
             color: white;
         }
 
         .delete:hover {
-            background: #e67e22;
+            background: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%);
         }
 
         .zero {
             grid-column: span 2;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .calculator {
+            animation: fadeIn 0.5s ease-out;
         }
     </style>
 </head>
